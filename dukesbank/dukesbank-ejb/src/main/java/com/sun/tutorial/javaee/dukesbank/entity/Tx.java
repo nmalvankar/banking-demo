@@ -28,7 +28,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name = "BANK_TX")
+@Table(name = "TX")
 @NamedQueries({
     @NamedQuery(name = "Tx.FindById",query = "SELECT a FROM Tx a WHERE a.id = :id")
     , @NamedQuery(name = "Tx.FindByTimeStamp", query = "SELECT a FROM Tx a WHERE a.timeStamp = :timeStamp")

@@ -30,7 +30,7 @@ import javax.persistence.TemporalType;
 
 
 @Entity
-@Table(name = "BANK_ACCOUNT")
+@Table(name = "ACCOUNT")
 @NamedQueries({
     @NamedQuery(name = "Account.FindById",query = "SELECT a FROM Account a WHERE a.id = :id")
     , @NamedQuery(name = "Account.FindByType", query = "SELECT a FROM Account a WHERE a.type = :type")
@@ -47,7 +47,7 @@ public class Account implements java.io.Serializable {
     private BigDecimal beginBalance;
     @Column(name = "CREDIT_LINE")
     private BigDecimal creditLine;
-    @JoinTable(name = "BANK_CUSTOMER_ACCOUNT_XREF", joinColumns = @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
+    @JoinTable(name = "CUSTOMER_ACCOUNT_XREF", joinColumns = @JoinColumn(name = "ACCOUNT_ID", referencedColumnName = "ACCOUNT_ID")
     , inverseJoinColumns = @JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "CUSTOMER_ID")
     )
     @ManyToMany
@@ -55,7 +55,7 @@ public class Account implements java.io.Serializable {
     @Column(name = "BEGIN_BALANCE_TIME_STAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date beginBalanceTimeStamp;
-    @TableGenerator(name = "accountIdGen", table = "BANK_SEQUENCE_GENERATOR", pkColumnName = "GEN_KEY", valueColumnName = "GEN_VALUE", pkColumnValue = "ACCOUNT_ID", initialValue = 5050, allocationSize = 1)
+    @TableGenerator(name = "accountIdGen", table = "SEQUENCE_GENERATOR", pkColumnName = "GEN_KEY", valueColumnName = "GEN_VALUE", pkColumnValue = "ACCOUNT_ID", initialValue = 5050, allocationSize = 1)
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "accountIdGen")
     @Column(name = "ACCOUNT_ID", nullable = false)

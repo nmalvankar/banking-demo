@@ -6,6 +6,6 @@
 	a one-to-one correspondence between static content and the generated servlet 
 	class' java code</description> </property> </jsp-config> </sun-web-app> -->
 <jboss-web>
-	<!-- <security-domain>other</security-domain> -->
+	<security-domain>other</security-domain>
 	<context-root>/bank</context-root>
 </jboss-web>

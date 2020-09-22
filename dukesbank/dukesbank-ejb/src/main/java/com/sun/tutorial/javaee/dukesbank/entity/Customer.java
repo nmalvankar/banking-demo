@@ -23,7 +23,7 @@ import javax.persistence.TableGenerator;
 
 
 @Entity
-@Table(name = "BANK_CUSTOMER")
+@Table(name = "CUSTOMER")
 @NamedQueries({
     @NamedQuery(name = "Customer.FindById",query = "SELECT a FROM Customer a WHERE a.id = :id")
     , @NamedQuery(name = "Customer.FindByLastName", query = "SELECT a FROM Customer a WHERE a.lastName LIKE :lastName")
@@ -40,7 +40,7 @@ import javax.persistence.TableGenerator;
 public class Customer implements java.io.Serializable {
     @ManyToMany(mappedBy = "customers")
     private Collection<Account> accounts;
-    @TableGenerator(name = "customerIdGen", table = "BANK_SEQUENCE_GENERATOR", pkColumnName = "GEN_KEY", valueColumnName = "GEN_VALUE", pkColumnValue = "CUSTOMER_ID", initialValue = 203, allocationSize = 1)
+    @TableGenerator(name = "customerIdGen", table = "SEQUENCE_GENERATOR", pkColumnName = "GEN_KEY", valueColumnName = "GEN_VALUE", pkColumnValue = "CUSTOMER_ID", initialValue = 203, allocationSize = 1)
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE, generator = "customerIdGen")
     @Column(name = "CUSTOMER_ID", nullable = false)

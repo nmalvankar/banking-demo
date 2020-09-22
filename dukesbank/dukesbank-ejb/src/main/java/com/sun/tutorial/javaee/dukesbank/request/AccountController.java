@@ -15,6 +15,8 @@ import com.sun.tutorial.javaee.dukesbank.exception.IllegalAccountTypeException;
 import com.sun.tutorial.javaee.dukesbank.exception.InvalidParameterException;
 import com.sun.tutorial.javaee.dukesbank.util.AccountDetails;
 import java.util.List;
+
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.Remote;
 
@@ -35,12 +37,15 @@ public interface AccountController {
         throws IllegalAccountTypeException, CustomerNotFoundException,
             InvalidParameterException;
 
+    @PermitAll
     List<AccountDetails> getAccountsOfCustomer(Long customerId)
         throws InvalidParameterException, CustomerNotFoundException;
 
+    @PermitAll
     List<Long> getCustomerIds(Long accountId)
         throws InvalidParameterException, AccountNotFoundException;
 
+    @PermitAll
     AccountDetails getDetails(Long accountId)
         throws InvalidParameterException, AccountNotFoundException;
 

@@ -22,6 +22,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.PermitAll;
 import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJBException;
 import javax.ejb.Stateful;
@@ -203,6 +204,7 @@ public class AccountControllerBean implements AccountController {
         }
     }
 
+    @PermitAll
     public List<AccountDetails> getAccountsOfCustomer(Long customerId)
         throws InvalidParameterException, CustomerNotFoundException {
         // returns a List of AccountDetails
@@ -232,6 +234,7 @@ public class AccountControllerBean implements AccountController {
         return copyAccountsToDetails(accounts);
     }
 
+    @PermitAll
     public List<Long> getCustomerIds(Long accountId)
         throws InvalidParameterException, AccountNotFoundException {
         Debug.print("AccountControllerBean getCustomerIds");
@@ -258,6 +261,7 @@ public class AccountControllerBean implements AccountController {
         return copyCustomerIdsToList(customers);
     }
 
+    @PermitAll
     public AccountDetails getDetails(Long accountId)
         throws InvalidParameterException, AccountNotFoundException {
         Debug.print("AccountControllerBean getDetails");
