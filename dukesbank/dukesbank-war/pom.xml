@@ -16,11 +16,11 @@
 
 
 	<dependencies>
-		<dependency>
+<!-- 		<dependency>
             <groupId>com.sun.tutorial.javaee</groupId>
             <artifactId>dukesbank-appclient</artifactId>
             <version>${project.version}</version>
-        </dependency>
+        </dependency> -->
         <dependency>
             <groupId>com.sun.tutorial.javaee</groupId>
             <artifactId>dukesbank-ejb</artifactId>

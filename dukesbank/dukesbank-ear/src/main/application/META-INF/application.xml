@@ -6,16 +6,16 @@
 	<display-name>dukesbank</display-name>
 	<module>
 		<web>
-			<web-uri>dukesbank-war.war</web-uri>
+			<web-uri>dukesbank-war-0.0.1-SNAPSHOT.war</web-uri>
 			<context-root>/bank</context-root>
 		</web>
 	</module>
 	<module>
-		<ejb>dukesbank-ejb.jar</ejb>
+		<ejb>dukesbank-ejb-0.0.1-SNAPSHOT.jar</ejb>
 	</module>
-	<module>
-		<java>dukesbank-appclient.jar</java>
-	</module>
+	<!-- <module>
+		<java>dukesbank-appclient-0.0.1-SNAPSHOT.jar</java>
+	</module> -->
 	<security-role>
 		<role-name>bankAdmin</role-name>
 	</security-role>
