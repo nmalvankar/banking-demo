@@ -9,10 +9,20 @@
 	<packaging>pom</packaging>
 	<name>dukesbank</name>
 	<description>DukesBank Application</description>
+
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
+		<version.jboss.maven.plugin>7.4.Final</version.jboss.maven.plugin>
 	</properties>
+
+	<modules>
+		<module>dukesbank-ejb</module>
+		<module>dukesbank-war</module>
+		<module>dukesbank-appclient</module>
+		<module>dukesbank-ear</module>
+	</modules>
+
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
@@ -24,10 +34,24 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	<modules>
-		<module>dukesbank-ejb</module>
-		<module>dukesbank-war</module>
-		<module>dukesbank-appclient</module>
-		<module>dukesbank-ear</module>
-	</modules>
+
+	<build>
+        <pluginManagement>
+            <plugins>
+                <!-- The JBoss AS plugin deploys your ear to a local JBoss EAP container -->
+                <!-- Due to Maven's lack of intelligence with EARs we need 
+                    to configure the jboss-as maven plugin to skip deployment for all modules. 
+                    We then enable it specifically in the ear module. -->
+                <plugin>
+                    <groupId>org.jboss.as.plugins</groupId>
+                    <artifactId>jboss-as-maven-plugin</artifactId>
+                    <version>${version.jboss.maven.plugin}</version>
+                    <inherited>true</inherited>
+                    <configuration>
+                        <skip>true</skip>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

@@ -8,6 +8,10 @@
 	<persistence-unit name="dukesbank-ejb"
 		transaction-type="JTA">
 		<jta-data-source>java:jboss/DukesBankDS</jta-data-source>
-		<properties />
+		  <properties>
+			  <!-- <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" /> -->
+			  <property name="hibernate.hbm2ddl.auto" value="update" />
+			  <property name="hibernate.show_sql" value="true" />
+		  </properties>
 	</persistence-unit>
 </persistence>
