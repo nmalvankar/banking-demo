@@ -125,7 +125,7 @@
         <subsystem xmlns="urn:jboss:domain:datasources:1.2">
             <datasources>
                 <datasource jndi-name="java:jboss/DukesBankDS" pool-name="DukesBankDS" enabled="true">
-                  <connection-url>jdbc:mysql://mysql:3306/dukesbank</connection-url>
+                  <connection-url>jdbc:mysql://${env.MYSQL_SERVICE_HOST}:${env.MYSQL_SERVICE_PORT}/dukesbank</connection-url>
                   <driver>mysql</driver>
                   <security>
                     <user-name>user</user-name>
