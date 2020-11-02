@@ -124,20 +124,19 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:datasources:1.2">
             <datasources>
-                <datasource jta="true" jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true"> <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url> <driver>h2</driver> <security> <user-name>sa</user-name> <password>sa</password> </security> </datasource><!-- ##DATASOURCES## -->
                 <datasource jndi-name="java:jboss/DukesBankDS" pool-name="DukesBankDS" enabled="true">
-        <connection-url>jdbc:mysql://mysql:3306/dukesbank</connection-url>
-        <driver>mysql</driver>
-        <security>
-            <user-name>user</user-name>
-            <password>password</password>
-        </security>
-        <validation>
-            <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
-            <background-validation>true</background-validation>
-            <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
-        </validation>
-    </datasource>
+                  <connection-url>jdbc:mysql://mysql:3306/dukesbank</connection-url>
+                  <driver>mysql</driver>
+                  <security>
+                    <user-name>user</user-name>
+                    <password>password</password>
+                  </security>
+                  <validation>
+                    <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLValidConnectionChecker"/>
+                    <background-validation>true</background-validation>
+                    <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.mysql.MySQLExceptionSorter"/>
+                  </validation>
+                </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
                         <xa-datasource-class>org.h2.jdbcx.JdbcDataSource</xa-datasource-class>
