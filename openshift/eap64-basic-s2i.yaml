@@ -292,4 +292,4 @@ parameters:
   name: ARTIFACT_DIR
 - description: Container memory limit
   name: MEMORY_LIMIT
-  value: 1Gi
+  value: 4Gi
