@@ -118,7 +118,7 @@ objects:
             command: 
             - /bin/bash
             - -c
-            - hostname && sleep 10 && echo $QUERY | /opt/rh/rh-mysql80/root/usr/bin/mysql -h $MYSQL_SERVICE_HOST -u $MYSQL_USER -D $MYSQL_DATABASE -p$MYSQL_PASSWORD -P 3306
+            - hostname && sleep 10 && echo $QUERY | /opt/rh/rh-mysql57/root/usr/bin/mysql -h $MYSQL_SERVICE_HOST -u $MYSQL_USER -D $MYSQL_DATABASE -p$MYSQL_PASSWORD -P 3306
             containerName: mysql
             env:
             - name: QUERY
