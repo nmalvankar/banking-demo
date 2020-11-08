@@ -360,7 +360,7 @@ objects:
             command:
             - /bin/bash
             - -c
-            - hostname && sleep 10 && echo $QUERY | /opt/rh/rh-mysql57/root/usr/bin/mysql -h $MYSQL_SERVICE_HOST -u $MYSQL_USER -D $MYSQL_DATABASE -p$MYSQL_PASSWORD -P 3306
+            - hostname && sleep 10 && echo $QUERY | /opt/rh/rh-mysql57/root/usr/bin/mysql -h $EAP_APP_MYSQL_SERVICE_HOST -u $MYSQL_USER -D $MYSQL_DATABASE -p$MYSQL_PASSWORD -P $EAP_APP_MYSQL_SERVICE_PORT
             containerName: ${APPLICATION_NAME}-mysql
             env:
             - name: QUERY
