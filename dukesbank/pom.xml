@@ -19,7 +19,6 @@
 	<modules>
 		<module>dukesbank-ejb</module>
 		<module>dukesbank-war</module>
-		<module>dukesbank-appclient</module>
 		<module>dukesbank-ear</module>
 	</modules>
 
