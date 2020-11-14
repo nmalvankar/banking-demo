@@ -7,11 +7,13 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="dukesbank-ejb"
 		transaction-type="JTA">
-		<jta-data-source>java:jboss/DukesBankDS</jta-data-source>
+		<jta-data-source>jdbc/DukesBankDS</jta-data-source>
 		  <properties>
 			  <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
-			  <property name="hibernate.hbm2ddl.auto" value="update" />
+			  <property name="hibernate.hbm2ddl.auto" value="validate" />
 			  <property name="hibernate.show_sql" value="true" />
+			  <property name="hibernate.transaction.manager_lookup_class"
+				value="org.hibernate.transaction.WeblogicTransactionManagerLookup" />
 		  </properties>
 	</persistence-unit>
 </persistence>
