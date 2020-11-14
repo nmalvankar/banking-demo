@@ -9,6 +9,8 @@
 
 package com.sun.tutorial.javaee.dukesbank.util;
 
+import weblogic.i18n.logging.NonCatalogLogger;
+
 
 /**
  * This class makes it easier to print out debug statements.
@@ -18,9 +20,11 @@ package com.sun.tutorial.javaee.dukesbank.util;
 public final class Debug {
     public static final boolean debuggingOn = true;
 
+    private static NonCatalogLogger logger = new NonCatalogLogger(Debug.class.getName());
+
     public static final void print(String msg) {
         if (debuggingOn) {
-            System.err.println("Debug: " + msg);
+            logger.debug("Debug: " + msg);
         }
     }
 
@@ -28,8 +32,8 @@ public final class Debug {
         String msg,
         Object object) {
         if (debuggingOn) {
-            System.err.println("Debug: " + msg);
-            System.err.println("       " + object.getClass().getName());
+            logger.debug("Debug: " + msg);
+            logger.debug("       " + object.getClass().getName());
         }
     }
 }
