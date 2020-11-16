@@ -1,15 +1,6 @@
-/*
- * Copyright 2007 Sun Microsystems, Inc.
- * All rights reserved.  You may not modify, use,
- * reproduce, or distribute this software except in
- * compliance with  the terms of the License at:
- * http://developer.sun.com/berkeley_license.html
- */
-
-
 package com.sun.tutorial.javaee.dukesbank.util;
 
-import weblogic.i18n.logging.NonCatalogLogger;
+import java.util.logging.Logger;
 
 
 /**
@@ -20,11 +11,11 @@ import weblogic.i18n.logging.NonCatalogLogger;
 public final class Debug {
     public static final boolean debuggingOn = true;
 
-    private static NonCatalogLogger logger = new NonCatalogLogger(Debug.class.getName());
+    private static Logger log = Logger.getLogger(Debug.class.getName());
 
     public static final void print(String msg) {
         if (debuggingOn) {
-            logger.debug("Debug: " + msg);
+            log.fine("Debug: " + msg);
         }
     }
 
@@ -32,8 +23,8 @@ public final class Debug {
         String msg,
         Object object) {
         if (debuggingOn) {
-            logger.debug("Debug: " + msg);
-            logger.debug("       " + object.getClass().getName());
+            log.fine("Debug: " + msg);
+            log.fine("       " + object.getClass().getName());
         }
     }
 }
